@@ -12,6 +12,7 @@
         var colourer = new LogColourer();
 
         $.fn.colorselecter = function(){
+            $(this).find('[data-role=collapsible]').collapsible();
             $(this).find('[data-role=fieldcontain]').fieldcontain();
             $(this).find('select').selectmenu();
             $(this).find('input').textinput();
@@ -48,7 +49,6 @@
                                             .replace(/{id}/g, 'hide').replace(/{field}/g, '隐藏'));
                 $(hide_selecter).find('option[value=same]').remove();
                 $('#second #colourer_sets').append(time_selecter, hide_selecter);
-                $('#second #colourer_sets').colorselecter();
 
                 colourer.regexp($('#first #name-regexp').val(), $('#first #drop-regexp').val(), $('#first #hide-regexp').val())
                        .parse($('#first #log-text').val());
@@ -67,12 +67,12 @@
 
                     $(colourer_set).find('p').append(name_selecter, said_selecter, done_selecter);
 
-                    //jquery mobile plugin
-                    $(colourer_set).collapsible();
-                    $(colourer_set).colorselecter();
-
                     $('#second #colourer_sets').append(colourer_set);
                 });
+
+                //jquery mobile plugin
+                $('#second #colourer_sets').colorselecter();
+
                 //binding change events
                 $('#second #colourer_sets select').change(function(){
                     var set = $('#' + $(this).attr('id').replace(/color_select_\S+_/g,'color_set_'));
