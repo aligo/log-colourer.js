@@ -158,7 +158,6 @@
             if(false === that.drop_regexp.test(line)){
                 var result = that.name_regexp.exec(line);
                 if(null !== result){
-                    alert(result);
                     var name = (result[2] || result[3] || result[4]).split('|')[0];
                     if(-1 === that.names.indexOf(name)){
                         that.names.push(name);
