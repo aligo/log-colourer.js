@@ -22,7 +22,7 @@ LOCAL_FILES = scripts/jquery-1.5.1.min.js \
 
 
 
-all: local gh
+all: local online gh
 
 clean:
 	@@rm -rf ${DIR}*
@@ -41,11 +41,15 @@ local: mktmp
 	@@for F in $(LOCAL_FILES); do cp -r ${SRC}$$F ${LOCAL_DIR}$$F; done
 	@@for F in $(FILES); do cp -r ${TMP}$$F ${LOCAL_DIR}$$F; done
 
-gh: mktmp
+online: mktmp
 	@@for D in $(DIRS); do mkdir -p ${GH_DIR}$$D; done
 	@@for F in $(FILES); do cp -r ${TMP}$$F ${GH_DIR}$$F; done
 	@@cat ${TMP}index.html | sed "s|=\"scripts/|=\"${CODE_MOBILE}|g" \
 	                       | sed "s|=\"${CODE_MOBILE}jquery-|=\"${CODE_JQUERY}jquery-|g" \
 	                       | sed "s|=\"${CODE_MOBILE}log-colourer.min.js|=\"scripts/log-colourer.min.js|g" \
 	                            > ${GH_DIR}index.html
+
+gh: online
+	@@rm -rf gh-pages/*
+	@@cp -r ${GH_DIR}/* gh-pages/
 

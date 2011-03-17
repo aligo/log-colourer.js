@@ -153,15 +153,17 @@
     };
     Colourer.prototype['parse'] = function (logs) {
         var that = this;
+        logs = logs.replace(/(?:\x0f|\x1f|\x02|\x03)(?:\d{1,2}(?:,\d{1,2})?)?/g,'');
         $.each(logs.split("\n"), function(i, line) {
             if(false === that.drop_regexp.test(line)){
                 var result = that.name_regexp.exec(line);
                 if(null !== result){
-                    var name = (result[2] || result[3]).split('|')[0];
+                    alert(result);
+                    var name = (result[2] || result[3] || result[4]).split('|')[0];
                     if(-1 === that.names.indexOf(name)){
                         that.names.push(name);
                     }
-                    var type = (result[2] === undefined) ? 'done' : 'said';
+                    var type = (result[3] !== '') ? 'done' : 'said';
                     var output = line.replace(result[0],'');
                     if(that.hide_regexp.test(output)){
                         type = 'hide';
