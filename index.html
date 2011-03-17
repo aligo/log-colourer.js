@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset='utf-8'>
-	<title>Log上色器.js</title>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
-  <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
-  <script type="text/javascript" src="scripts/log-colourer.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+  <head>
+  <meta charset='utf-8'>
+  <title>Log上色器.js</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+  <script type="text/javascript" src="scripts/log-colourer.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+  <style type="text/css">
+    body {
+      background: #DDDDDD;
+    }
+  </style>
 </head>
-<body style="background: #DDDDDD;">
+<body>
 <div data-role="page" id="first">
-	<div data-role="header" data-position="inline">
-	  <a href="index.html" rel="external" data-role="button" data-icon="refresh" data-iconpos="notext">重置</a>
-		<h1>第一步</h1>
-		<a href="#second" data-icon="check" class="ui-btn-right">下一步</a>
-	</div>
-	<div data-role="content">
-	  <div data-role="fieldcontain">
-	    <label for="log-format" class="select">Log格式:</label>
-	    <select name="log-format" id="log-format">
-		    <option selected="selected" value="mirc" data-name-regexp="~^([<\[(]?\d\d.{3,6}[>\])]?\s+)(?:[<\[<](.+?)[>\]>]|\*{1,3}\s*(.+?)\s|(.+?)(?:\s|\:|：))~S" data-drop-regexp="~^[<\[(]?\d\d.{3,6}[>\])]?\s*((\*{3}|\S+ +\.[rdRD]|\* 新加入:|\* 已退出:|\* \S+ 设置模式为:) |.+(\S+ 现已将其昵称改为 \S+| 已经连接到你所在的irc服务器了\.| 目前在 IRC| 已离开了 IRC|在#\S+叫我名字了。|\.IP 向你开小窗)$)~S">mIRC by Sheepy</option>
-		    <option value="xchat" data-name-regexp="~^(\w{3}\s\d{2}\s\d{2}:\d{2}:\d{2})\s(?:<(\S+)>|\*\s+(\S+))\s~S" data-drop-regexp="~^\w{3}\s\d{2}\s\d{2}:\d{2}:\d{2}\s\*\s.*(?:gives channel|has joined|has left|invited|has quit|known as).*~S">XChat by aligo</option>
-	      <option value="custom">自定义</option>
-	    </select>
+  <div data-role="header" data-position="inline">
+    <a href="index.html" rel="external" data-role="button" data-icon="refresh" data-iconpos="notext">重置</a>
+    <h2>第一步</h2>
+    <a href="#second" data-icon="check">下一步</a>
+  </div>
+  <div data-role="content">
+    <h1 align="center">Log Colourer.js</h1>
+    <h4 align="center">v0.0.1b by aligo</h4>
+    <div data-role="fieldcontain">
+      <label for="log-format" class="select">Log格式:</label>
+      <select name="log-format" id="log-format">
+        <option selected="selected" value="mirc" data-name-regexp="~^([<\[(]?\d\d.{3,6}[>\])]?\s+)(?:[<\[<](.+?)[>\]>]|\*{1,3}\s*(.+?)\s|(.+?)(?:\s|\:|：))~S" data-drop-regexp="~^[<\[(]?\d\d.{3,6}[>\])]?\s*((\*{3}|\S+ +\.[rdRD]|\* 新加入:|\* 已退出:|\* \S+ 设置模式为:) |.+(\S+ 现已将其昵称改为 \S+| 已经连接到你所在的irc服务器了\.| 目前在 IRC| 已离开了 IRC|在#\S+叫我名字了。|\.IP 向你开小窗)$)~S">mIRC by Sheepy</option>
+        <option value="xchat" data-name-regexp="~^(\w{3}\s\d{2}\s\d{2}:\d{2}:\d{2})\s(?:<(\S+)>|\*\s+(\S+))\s~S" data-drop-regexp="~^\w{3}\s\d{2}\s\d{2}:\d{2}:\d{2}\s\*\s.*(?:gives channel|has joined|has left|invited|has quit|known as).*~S">XChat by aligo</option>
+        <option value="custom">自定义</option>
+      </select>
     </div>
-	  <div data-role="fieldcontain">
-	    <label for="name-regexp">人名表达式:</label>
+    <div data-role="fieldcontain">
+      <label for="name-regexp">人名表达式:</label>
       <input type="text" name="name-regexp" id="name-regexp" value=""  />
     </div>
     <div data-role="fieldcontain">
@@ -36,32 +43,38 @@
       <label for="hide-regexp">隐藏表达式:</label>
       <input type="text" name="hide-regexp" id="hide-regexp" value="~^(?:\(|（).*~S"  />
     </div>
-		<div data-role="fieldcontain">
-	    <label for="log-text">将Log粘贴到此:</label>
-	    <textarea cols="40" rows="8" name="log-text" id="log-text"></textarea>
+    <div data-role="fieldcontain">
+      <label for="log-text">将Log粘贴到此:</label>
+      <textarea cols="40" rows="8" name="log-text" id="log-text"></textarea>
     </div>
-	</div>
+  </div>
+  <div data-role="footer" class="ui-bar" >
+    <div align="center" data-type="horizontal" data-role="controlgroup">
+      <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="alert" href="http://ellesime.anetcity.com/ellesime/bbs/index.php?topic=38402.0">Bug报告</a>
+      <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="star" href="https://github.com/aligo/log-colourer.js">GitHub</a>
+    </div>
+  </div>
 </div>
 <div data-role="page" id="second">
-	<div data-role="header" data-position="inline">
-	  <a href="#first" data-icon="check">上一步</a>
-		<h1>第二步</h1>
-		<a href="#third" data-icon="check">下一步</a>
-	</div>
-	<div id="colourer_sets" data-role="content">
-	</div>
-	<script id="colourer_set" type="html/template">
+  <div data-role="header" data-position="inline">
+    <a href="#first" data-icon="check">上一步</a>
+    <h2>第二步</h2>
+    <a href="#third" data-icon="check">下一步</a>
+  </div>
+  <div id="colourer_sets" data-role="content">
+  </div>
+  <script id="colourer_set" type="html/template">
     <div class="color_set" id="color_set_{id}" data-role="collapsible" data-collapsed="true">
-	    <h3><span class="color_name">{name}</span>&nbsp;&nbsp;<span class="color_said">对话颜色</span>&nbsp;&nbsp;<span class="color_done">动作颜色</span></h3>
-	    <p></p>
-	  </div>
-	</script>
-	<script id="color_selecter" type="html/template">
-	  <div data-role="fieldcontain">
-	    <label for="color_select_{id}" class="select ui-select">{field}颜色选择:</label>
-	    <select name="color_select_{id}" id="color_select_{id}" data-native-menu="true">
-	      <option value='same' style='background-color:white;color:black'>和名字相同</option>
-	      <option value='custom' style='background-color:white;color:black'>(不上色或自定)</option>
+      <h3><span class="color_name">{name}</span>&nbsp;&nbsp;<span class="color_said">对话颜色</span>&nbsp;&nbsp;<span class="color_done">动作颜色</span></h3>
+      <p></p>
+    </div>
+  </script>
+  <script id="color_selecter" type="html/template">
+    <div data-role="fieldcontain">
+      <label for="color_select_{id}" class="select ui-select">{field}颜色选择:</label>
+      <select name="color_select_{id}" id="color_select_{id}" data-native-menu="true">
+        <option value='same' style='background-color:white;color:black'>和名字相同</option>
+        <option value='custom' style='background-color:white;color:black'>(不上色或自定)</option>
         <option value='#C50' style='background-color:#C50;color:#C50' >深橙色</option>
         <option value='orange' style='background-color:orange;color:orange' >橙色</option>
         <option value='olive' style='background-color:olive;color:olive'>橄欖色</option>
@@ -82,27 +95,28 @@
         <option value='gray' style='background-color:gray;color:gray' >灰色</option>
         <option value='silver' style='background-color:silver;color:silver' >淺灰色</option>
         <option value='white' style='background-color:white;color:white'>白色</option>
-	    </select>
-	  </div>
-	  <div data-role="fieldcontain">
-	    <label for="color_{id}" class="ui-input-text">{field}颜色值:</label>
+      </select>
+    </div>
+    <div data-role="fieldcontain">
+      <label for="color_{id}" class="ui-input-text">{field}颜色值:</label>
       <input type="text" name="color_{id}" id="color_{id}" value="" />
     </div>
-	</script>
+  </script>
 </div>
 <div data-role="page" id="third">
-	<div data-role="header" data-position="inline">
-	  <a href="#second" data-icon="check">上一步</a>
-		<h1>第三步</h1>
-		<a href="index.html" rel="external" data-role="button" data-icon="refresh" data-iconpos="notext">重置</a>
-	</div>
-	<div data-role="content">
+  <div data-role="header" data-position="inline">
+    <a href="#second" data-icon="check">上一步</a>
+    <h2>第三步</h2>
+    <a href="index.html" rel="external" data-role="button" data-icon="refresh" data-iconpos="notext">重置</a>
+  </div>
+  <div data-role="content">
     <div data-role="fieldcontain">
-	    <label for="log-output">Log输出:</label>
-	    <textarea cols="40" rows="8" name="log-output" id="log-output"></textarea>
+      <label for="log-output">Log输出:</label>
+      <textarea cols="40" rows="8" name="log-output" id="log-output"></textarea>
     </div>
-	</div>
+  </div>
 </div>
+Log Colourer.js v0.0.1b
 </body>
 </html>
 
