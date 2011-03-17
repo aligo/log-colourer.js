@@ -51,5 +51,7 @@ online: mktmp
 
 gh: online
 	@@rm -rf gh-pages/*
-	@@cp -r ${GH_DIR}/* gh-pages/
+	@@cp -r ${GH_DIR}* gh-pages/
+	@@cat ${GH_DIR}index.html | sed "s|=\"index.html|=\"http://aligo.github.com/log-colourer.js|g" \
+	                            > gh-pages/index.html
 
