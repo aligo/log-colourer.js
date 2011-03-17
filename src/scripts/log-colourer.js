@@ -1,8 +1,11 @@
 /*!
- * Log Colourer.js v0.0.1
- * http://aligo.me/
+ * Log Colourer.js v@VERSION
+ * http://aligo.github.com/log-colourer.js
+ * http://ellesime.anetcity.com/ellesime/bbs/index.php?topic=38402.0
+ * https://github.com/aligo/log-colourer.js
  *
- * Copyright 2011, aligo
+ *
+ * Copyright 2011, aligo, http://aligo.me/
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
 (function($, LogColourer, undefined ) {

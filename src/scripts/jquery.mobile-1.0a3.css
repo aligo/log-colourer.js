@@ -1,5 +1,5 @@
 /*!
- * jQuery Mobile v1.0a4pre
+ * jQuery Mobile v1.0a3
  * http://jquerymobile.com/
  *
  * Copyright 2010, jQuery Project
@@ -29,7 +29,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 	#3c3c3c),
 		color-stop(1, 		#111111));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#3c3c3c', EndColorStr='#111111')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#3c3c3c', EndColorStr='#111111')";
 }
 .ui-bar-a, 
 .ui-bar-a input, 
@@ -74,16 +74,14 @@
 	font-weight: bold;
 }
 .ui-br {
-	border-bottom: rgb(130,130,130);
-	border-bottom: rgba(130,130,130,.3);
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-bottom: 1px solid rgba(130,130,130,.3);
 }
 .ui-btn-up-a {
 	border: 1px solid 		#222;
 	background: 			#333333;
 	font-weight: bold;
 	color: 					#fff;
+	cursor: pointer;
 	text-shadow: 0 -1px 1px #000;
 	text-decoration: none;
 	background-image: -moz-linear-gradient(top, 
@@ -204,6 +202,7 @@
 	background: 			#2567ab;
 	font-weight: bold;
 	color: 					#fff;
+	cursor: pointer;
 	text-shadow: 0 -1px 1px #145072;
 	text-decoration: none;
 	background-image: -moz-linear-gradient(top, 
@@ -316,6 +315,7 @@
 	background: 			#eee;
 	font-weight: bold;
 	color: 					#444;
+	cursor: pointer;
 	text-shadow: 0 1px 1px #f6f6f6;
 	text-decoration: none;
 	background-image: -moz-linear-gradient(top, 
@@ -360,7 +360,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#eeeeee),
 		color-stop(1, 		#fdfdfd));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#fdfdfd')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#fdfdfd')";
 }
 .ui-btn-down-c a.ui-link-inherit {
 	color: 					#2F3E46;
@@ -447,7 +447,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#fdfdfd),
 		color-stop(1, 		#eeeeee));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fdfdfd', EndColorStr='#eeeeee')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fdfdfd', EndColorStr='#eeeeee')";
 }
 .ui-btn-hover-d a.ui-link-inherit {
 	color: 					#222;
@@ -464,7 +464,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#eeeeee),
 		color-stop(1, 		#ffffff));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#ffffff')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#ffffff')";
 }
 .ui-btn-down-d a.ui-link-inherit {
 	border: 1px solid 		#808080;
@@ -478,7 +478,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#cccccc),
 		color-stop(1, 		#eeeeee));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#eeeeee')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#eeeeee')";
 }
 .ui-btn-up-d,
 .ui-btn-hover-d,
@@ -501,7 +501,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#fceda7),
 		color-stop(1, 		#fadb4e));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fceda7', EndColorStr='#fadb4e')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fceda7', EndColorStr='#fadb4e')";
 }
 .ui-bar-e,
 .ui-bar-e input,
@@ -528,7 +528,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#fff),
 		color-stop(1, 		#faeb9e));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#faeb9e')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#faeb9e')";
 }
 .ui-body-e,
 .ui-body-e input,
@@ -549,6 +549,7 @@
 	background: 			#fadb4e;
 	font-weight: bold;
 	color: 					#333;
+	cursor: pointer;
 	text-shadow: 0 1px 1px 	#fe3;
 	text-decoration: none;
 	text-shadow: 0 1px 0 	#fff;
@@ -576,7 +577,7 @@
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#fcf0b5),
 		color-stop(1, 		#fbe26f));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fcf0b5', EndColorStr='#fbe26f')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fcf0b5', EndColorStr='#fbe26f')";
 }
 
 .ui-btn-hover-e a.ui-link-inherit {
@@ -631,7 +632,7 @@ a.ui-link-inherit {
 	background-image: -webkit-gradient(linear,left top,left bottom,
 		color-stop(0, 		#85bae4),
 		color-stop(1, 		#5393c5));
-  	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#85bae4', EndColorStr='#5393c5')";
+  	-msfilter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#85bae4', EndColorStr='#5393c5')";
   	outline: none;
 }
 .ui-btn-active a.ui-link-inherit {
@@ -725,46 +726,47 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-icon {
-	background: 						#666;
-	background: 						rgba(0,0,0,.4);
 	background-image: url(images/icons-18-white.png);
 	background-repeat: no-repeat;
+	background-color: 					#666;
+	background-color: rgba(0,0,0,.4);
+	-moz-border-radius: 				9px;
+	-webkit-border-radius: 				9px;
+	border-radius: 						9px;
+}
+.ui-icon-disc {
+	background-color: 					#666;
+	background-color: 					rgba(0,0,0,.3);
 	-moz-border-radius: 				9px;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
 }
 
-
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
 
-.ui-icon-alt {
-	background: 						#fff;
-	background: 						rgba(255,255,255,.3);
+.ui-icon-black {
 	background-image: url(images/icons-18-black.png);
-	background-repeat: no-repeat;
+}
+.ui-icon-black-disc {
+	background-color: 					#fff;
+	background-color: 					rgba(255,255,255,.3);
+	-moz-border-radius: 				9px;
+	-webkit-border-radius: 				9px;
+	border-radius: 						9px;
 }
 
 /* HD/"retina" sprite
 -----------------------------------------------------------------------------------------------------------*/
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 240dpi) {
-	
-	.ui-icon-plus, .ui-icon-minus, .ui-icon-delete, .ui-icon-arrow-r,
-	.ui-icon-arrow-l, .ui-icon-arrow-u, .ui-icon-arrow-d, .ui-icon-check,
-	.ui-icon-gear, .ui-icon-refresh, .ui-icon-forward, .ui-icon-back,
-	.ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-search {
-		background-image: url(images/icons-36-white.png);
-		-moz-background-size: 630px 18px;
-		-o-background-size: 630px 18px;
-		-webkit-background-size: 630px 18px;
-		background-size: 630px 18px;
-	}
-	.ui-icon-alt {
-		background-image: url(images/icons-36-black.png);
-	}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
+	.ui-icon {
+	background-image: url(images/icons-36-white.png);
+	background-size: 630px 18px;
+}
+	.ui-icon-black {
+	background-image: url(images/icons-36-black.png);
+}
 }
 
 /* plus minus */
@@ -1346,10 +1348,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 
 /* content configurations. */
 .ui-grid-a, .ui-grid-b, .ui-grid-c, .ui-grid-d { overflow: hidden; }
-.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e { margin: 0; padding: 0; border: 0; float: left; min-height:1px;}
-
-/* grid solo: 100 - single item fallback */
-.ui-grid-solo .ui-block-a { width: 100%; float: none; }
+.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e { margin: 0; padding: 0; border: 0; float: left; }
 
 /* grid a: 50/50 */
 .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b { width: 50%; }
@@ -1365,8 +1364,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 
 /* grid d: 20/20/20/20/20 */
 .ui-grid-d .ui-block-a, .ui-grid-d .ui-block-b, .ui-grid-d .ui-block-c, .ui-grid-d .ui-block-d, .ui-grid-d .ui-block-e { width: 20%; }
-.ui-grid-d .ui-block-a { clear: left; }
-/*
+.ui-grid-d .ui-block-a { clear: left; }/*
 * jQuery Mobile Framework
 * Copyright (c) jQuery Project
 * Dual licensed under the MIT (MIT-LICENSE.txt) or GPL (GPL-LICENSE.txt) licenses.
@@ -1457,7 +1455,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 .ui-btn-icon-top .ui-icon { top: 5px; }
 .ui-btn-icon-bottom .ui-icon { bottom: 5px; }
 /*hiding native button,inputs */
-.ui-btn-hidden {  position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-appearance: button; opacity: 0; cursor: pointer; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); }
+.ui-btn-hidden {  position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-appearance: button; opacity: 0; cursor: pointer; }
 /*
 * jQuery Mobile Framework
 * Copyright (c) jQuery Project
@@ -1491,8 +1489,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 .ui-controlgroup-vertical .ui-controlgroup-last { border-bottom-width: 1px; }
 .ui-controlgroup-horizontal { padding: 0; }
 .ui-controlgroup-horizontal .ui-btn,
-.ui-controlgroup-horizontal .ui-checkbox, .ui-controlgroup-horizontal .ui-radio { display: inline-block; margin: 0 -5px 0 0; }
-.ui-controlgroup-horizontal .ui-checkbox, .ui-controlgroup-horizontal .ui-radio { display: inline; }
+.ui-controlgroup-horizontal .ui-checkbox, .ui-controlgroup-horizontal .ui-radio { margin: 0 -5px 0 0; display: inline-block;  }
 .ui-controlgroup-horizontal .ui-checkbox .ui-btn, .ui-controlgroup-horizontal .ui-radio .ui-btn,
 .ui-controlgroup-horizontal .ui-checkbox:last-child, .ui-controlgroup-horizontal .ui-radio:last-child { margin-right: 0; }
 .ui-controlgroup-horizontal .ui-controlgroup-last { margin-right: 0; }
@@ -1537,8 +1534,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 */
 .ui-select { display: block; position: relative; }
 .ui-select select { position: absolute; left: -9999px; top: -9999px; }
-.ui-select .ui-btn { overflow: hidden; }
-.ui-select .ui-btn select { cursor: pointer; -webkit-appearance: button; left: 0; top:0; width: 100%; height: 100%; opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); }
+.ui-select .ui-btn select { cursor: pointer; -webkit-appearance: button; left: 0; top:0; width: 100%; height: 100%; opacity: 0.001; }
 .ui-select .ui-btn select.ui-select-nativeonly { opacity: 1; }
 
 .ui-select .ui-btn-icon-right .ui-btn-inner { padding-right: 45px; } 
@@ -1549,7 +1545,7 @@ label.ui-select { font-size: 16px; line-height: 1.4;  font-weight: normal; margi
 
 /*listbox*/
 .ui-select .ui-btn-text, .ui-selectmenu .ui-btn-text { display: inline-block; min-height: 1em; }
-.ui-select .ui-btn-text { text-overflow: ellipsis; overflow: hidden; display: block;}
+.ui-select .ui-btn-text { text-overflow: ellipsis; overflow: hidden; width: 85% }
 
 .ui-selectmenu { position: absolute; padding: 0; z-index: 100 !important; width: 80%; max-width: 350px; padding: 6px; }
 .ui-selectmenu .ui-listview { margin: 0; }
@@ -1559,13 +1555,13 @@ label.ui-select { font-size: 16px; line-height: 1.4;  font-weight: normal; margi
 .ui-screen-hidden, .ui-selectmenu-list .ui-li .ui-icon { display: none; }
 .ui-selectmenu-list .ui-li .ui-icon { display: block; }
 .ui-li.ui-selectmenu-placeholder { display: none; }
-.ui-selectmenu .ui-header .ui-title { margin: 0.6em 46px 0.8em; }
 
 .min-width-480px label.ui-select { display: inline-block;  width: 20%;  margin: 0 2% 0 0; }
 .min-width-480px .ui-select { width: 60%; display: inline-block; }
 
 /* when no placeholder is defined in a multiple select, the header height doesn't even extend past the close button.  this shim's content in there */
-.ui-selectmenu .ui-header h1:after { content: '.'; visibility: hidden; }/*
+.ui-selectmenu .ui-header h1:after { content: '.'; visibility: hidden; }
+/*
 * jQuery Mobile Framework
 * Copyright (c) jQuery Project
 * Dual licensed under the MIT (MIT-LICENSE.txt) or GPL (GPL-LICENSE.txt) licenses.
@@ -1585,9 +1581,7 @@ textarea.ui-input-text { height: 50px; -webkit-transition: height 200ms linear; 
 .min-width-480px input.ui-input-text, 
 .min-width-480px textarea.ui-input-text, 
 .min-width-480px .ui-input-search { width: 60%; display: inline-block; } 
-.min-width-480px .ui-input-search { width: 50%; }
-.min-width-480px .ui-input-search input.ui-input-text { width: 98%; /*echos rule from above*/ }
-/*
+.min-width-480px .ui-input-search { width: 50%; }/*
 * jQuery Mobile Framework
 * Copyright (c) jQuery Project
 * Dual licensed under the MIT (MIT-LICENSE.txt) or GPL (GPL-LICENSE.txt) licenses.
@@ -1595,8 +1589,8 @@ textarea.ui-input-text { height: 50px; -webkit-transition: height 200ms linear; 
 .ui-listview { margin: 0; counter-reset: listnumbering; }
 .ui-content .ui-listview { margin: -15px; }
 .ui-content .ui-listview-inset { margin: 1em 0;  }
-.ui-listview, .ui-li { list-style:none; padding:0; }
-.ui-li { display: block; margin:0; position: relative; overflow: visible; text-align: left; border-width: 0; border-top-width: 1px; }
+.ui-listview, .ui-li { list-style:none; padding:0; zoom: 1; }
+.ui-li { display: block; margin:0; position: relative; overflow: hidden; text-align: left; border-width: 0; border-top-width: 1px; }
 .ui-li .ui-btn-text { text-overflow: ellipsis; overflow: hidden; white-space: nowrap;  }
 .ui-li-divider, .ui-li-static { padding: .5em 15px; font-size: 14px; font-weight: bold; counter-reset: listnumbering;  }
 ol.ui-listview .ui-link-inherit:before, .ui-li-dec { font-size: .8em; display: inline-block; padding-right: .3em; font-weight: normal;counter-increment: listnumbering; content: counter(listnumbering) ". "; }
@@ -1626,8 +1620,6 @@ ol.ui-listview .ui-li-jsnumbering:before { content: "" !important; } /* to avoid
 .ui-listview-filter { border-width: 0; overflow: hidden; margin: -15px -15px 15px -15px }
 .ui-listview-filter .ui-input-search { margin: 5px; width: auto; display: block; }
 
-.ui-listview-filter-inset { margin: -15px -5px -15px -5px; background: transparent; }
-
 /* Odd iPad positioning issue. */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .ui-li .ui-btn-text { overflow:  visible; }
@@ -1651,8 +1643,8 @@ div.ui-slider-handle-snapping { -webkit-transition: left 100ms linear; }
 div.ui-slider-labelbg { position: absolute; top:0; margin: 0; border-width: 0; }
 div.ui-slider-switch div.ui-slider-labelbg-a { width: 60%; height: 100%; left: 0; }
 div.ui-slider-switch div.ui-slider-labelbg-b { width: 60%; height: 100%; right: 0; }
-.ui-slider-switch-a div.ui-slider-labelbg-a, .ui-slider-switch-b div.ui-slider-labelbg-b { z-index: -1; }
-.ui-slider-switch-a div.ui-slider-labelbg-b, .ui-slider-switch-b div.ui-slider-labelbg-a { z-index: 0; }
+.ui-slider-switch-a div.ui-slider-labelbg-a, .ui-slider-switch-b div.ui-slider-labelbg-b { z-index: 1; }
+.ui-slider-switch-a div.ui-slider-labelbg-b, .ui-slider-switch-b div.ui-slider-labelbg-a { z-index: 10; }
 
 div.ui-slider-switch a.ui-slider-handle { z-index: 20;  width: 101%; height: 32px; margin-top: -18px; margin-left: -101%; }
 span.ui-slider-label { width: 100%; position: absolute;height: 32px;  font-size: 16px; text-align: center; line-height: 2; background: none; border-color: transparent; }

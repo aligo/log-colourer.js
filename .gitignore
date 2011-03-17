@@ -1,0 +1,8 @@
+*~
+*.diff
+*.patch
+.DS_Store
+build/*.jar
+target/*
+tmp/*
+
