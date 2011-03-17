@@ -31,13 +31,11 @@
                 $('#first #drop-regexp').val($(this).find('option:selected').data('drop-regexp'));
             }
         });
-        $('#first input').change(function(){
-            colourer.init();
-        });
 
         //init elements
         $('#first').bind('pageshow', function(){
             $(this).find('#log-format').trigger('change');
+            colourer.init();
         });
 
         $('#second').bind('pagebeforeshow', function(){
@@ -120,7 +118,21 @@
                     colourer.setNameColourer(ids[2], ids[1], colourer.getColourerFunc($(this).val()));
                 }
             });
-            $('#log-output').val(colourer.output());
+            var bbcode = colourer.output();
+            $('#bbcode_output').val(bbcode);
+            var html = bbcode.replace(/\[\/color\]/g, '</span>')
+                             .replace(/\[color=([^\]]+)\]/g, '<span style="color: $1;">')
+                             .replace(/\n/g, "<br />\n");
+            $('#html_output').val(html);
+            $('.preview_output').html(html);
+        });
+
+        $('.html_output, .preview_output').hide();
+        $('#output_navbar a').click(function(){
+            $('#output_navbar a').removeClass('ui-btn-active');
+            $(this).addClass('ui-btn-active');
+            $('#outputs>div').hide();
+            $('#outputs .' + $(this).data('output') + '_output').show();
         });
 
     });
