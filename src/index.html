@@ -57,6 +57,19 @@
       <input type="text" name="hide-regexp" id="hide-regexp" value="~^(?:\(|（).*~S"  />
     </div>
     <div data-role="fieldcontain">
+      <fieldset id="deal-time" data-type="horizontal" data-role="controlgroup">
+        <legend>时间精简:</legend>
+        <input type="radio" name="deal-time" id="keep-time" value="keep"  />
+        <label for="keep-time">保留</label>
+        <input type="radio" name="deal-time" id="cut3-time" value="cut3" checked="checked"  />
+        <label for="cut3-time">时:分:秒</label>
+        <input type="radio" name="deal-time" id="cut2-time" value="cut2" />
+        <label for="cut2-time">时:分</label>
+        <input type="radio" name="deal-time" id="drop-time" value="drop"  />
+        <label for="drop-time">去除</label>
+      </fieldset>
+    </div>
+    <div data-role="fieldcontain">
       <label for="log-text">将Log粘贴到此:</label>
       <textarea cols="40" rows="8" name="log-text" id="log-text"></textarea>
     </div>
@@ -98,6 +111,7 @@
         <option value='yellow' style='background-color:yellow;color:yellow' >黃色</option>
         <option value='lime' style='background-color:lime;color:lime' >淺綠色</option>
         <option value='aqua' style='background-color:aqua;color:aqua' >淺青綠色</option>
+        <option value='#F88' style='background-color:#F88;color:#F88' >珊瑚色</option>
         <option value='black' style='background-color:black;color:black' >黑色</option>
         <option value='#333' style='background-color:#333;color:#333' >深灰色</option>
         <option value='gray' style='background-color:gray;color:gray' >灰色</option>

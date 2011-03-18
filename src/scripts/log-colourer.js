@@ -23,6 +23,10 @@
             $(this).find('input').textinput();
         };
 
+        $.fn.pickcolor = function(i){
+            $(this).find('option').eq(i).attr('selected', 'selected');
+        };
+
         //binding events
         $('#first #log-format').change(function(){
             if("custom" === $(this).val()){
@@ -52,9 +56,11 @@
                 var time_selecter = $($('#second #color_selecter').html()
                                             .replace(/{id}/g, 'time').replace(/{field}/g, '时间'));
                 $(time_selecter).find('option[value=same]').remove();
+                $(time_selecter).pickcolor(-2);
                 var hide_selecter = $($('#second #color_selecter').html()
                                             .replace(/{id}/g, 'hide').replace(/{field}/g, '隐藏'));
                 $(hide_selecter).find('option[value=same]').remove();
+                $(hide_selecter).pickcolor(-2);
                 $('#second #colourer_sets').append(time_selecter, hide_selecter);
 
                 colourer.regexp($('#first #name-regexp').val(), $('#first #drop-regexp').val(), $('#first #hide-regexp').val())
@@ -65,12 +71,30 @@
                     var name_selecter = $($('#second #color_selecter').html()
                                             .replace(/{id}/g, 'name_' + id).replace(/{field}/g, '名字'));
                     $(name_selecter).find('option[value=same]').remove();
-                    var said_selecter = $('#second #color_selecter').html()
-                                            .replace(/{id}/g, 'said_' + id).replace(/{field}/g, '说话');
-                    var done_selecter = $('#second #color_selecter').html()
-                                            .replace(/{id}/g, 'done_' + id).replace(/{field}/g, '动作');
+
+                    var said_selecter = $($('#second #color_selecter').html()
+                                            .replace(/{id}/g, 'said_' + id).replace(/{field}/g, '说话'));
+                    var done_selecter = $($('#second #color_selecter').html()
+                                            .replace(/{id}/g, 'done_' + id).replace(/{field}/g, '动作'));
                     var colourer_set = $($('#second #colourer_set').html()
                                             .replace(/{id}/g, id).replace(/{name}/g, name));
+
+                    //auto picking color
+                    if(0 === id){
+                        $(name_selecter).pickcolor(-1);
+                        $(done_selecter).pickcolor(12);
+                        $(said_selecter).pickcolor(12);
+                    }else if(-1 !== name.toLowerCase().indexOf('bot')){
+                        $(name_selecter).pickcolor(11);
+                        $(done_selecter).pickcolor(-4);
+                        $(said_selecter).pickcolor(-4);
+                    }else{
+                        var color_id = 1 + ((id - 1) * 3) % 15 + Math.floor(((id - 1) * 3) / 15);
+                        if (color_id > 10) {
+                            color_id = color_id + 1;
+                        }
+                        $(name_selecter).pickcolor(color_id);
+                    }
 
                     $(colourer_set).find('p').append(name_selecter, said_selecter, done_selecter);
 
@@ -99,7 +123,11 @@
                     var this_id = $(this).attr('id');
                     var set_id = '#' + this_id.replace(/color_\S+_/g,'color_set_')
                     var class_type = set_id + ' .color_' + this_id.split('_')[1];
-                    $(class_type).css('color', $(this).val());
+                    var color = $(this).val();
+                    if('white' === color){
+                        color = '#DDD';
+                    }
+                    $(class_type).css('color', color);
                     if(-1 !== this_id.indexOf('_name_')){
                         $(set_id).find('select').each(function(){
                             if(-1 === $(this).attr('id').indexOf('_name_')){
@@ -116,6 +144,7 @@
         });
 
         $('#third').bind('pagebeforeshow', function(){
+
             $('#second ').find('input').each(function(){
                 var ids = $(this).attr('id').split('_');
                 if(ids[2] === undefined){
@@ -124,11 +153,16 @@
                     colourer.setNameColourer(ids[2], ids[1], colourer.getColourerFunc($(this).val()));
                 }
             });
+
+            colourer.deal_time = $('#deal-time input:radio:checked').val();
+
             var bbcode = colourer.output();
             $('#bbcode_output').val(bbcode);
-            var html = bbcode.replace(/\[\/color\]/g, '</span>')
+            var html = bbcode.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                             .replace(/\[\/color\]/g, '</span>')
                              .replace(/\[color=([^\]]+)\]/g, '<span style="color: $1;">')
                              .replace(/\n/g, "<br />\n");
+            //                 .replace(/(<span.*?>)(.*?)<br \/>\n(.*?)<\/span>/g, "$1$2</span><br />\n$1$3</span>");
             $('#html_output').val(html);
             $('.preview_output').html(html);
         });
@@ -161,12 +195,15 @@
 	    this.output_rows = [];
 	    this.prev_color = '';
 	    this.changed = true;
+	    this.deal_time = 'cut3';
 	    return this;
     };
     Colourer.prototype['regexp'] = function (name_regexp, drop_regexp, hide_regexp) {
         this.name_regexp = name_regexp.toRegExp();
 	    this.drop_regexp = drop_regexp.toRegExp();
 	    this.hide_regexp = hide_regexp.toRegExp();
+	    this.cut2_regexp = /^.*?(\d{2}:\d{2})(?::\d{2})?.*?$/;
+	    this.cut3_regexp = /^.*?(\d{2}:\d{2}:\d{2}).*?$/;
 	    return this;
     };
     Colourer.prototype['parse'] = function (logs) {
@@ -222,7 +259,7 @@
         return this;
     };
     Colourer.prototype['callNameColourer'] = function(i, type, text) {
-        if(type === 'hide' || type === 'time'){
+        if('hide' === type || 'time' === type){
             var func = this.colourers[type];
         }else{
             var func = this.namescolourers[i][type];
@@ -234,12 +271,23 @@
         }
         return text;
     };
+    Colourer.prototype['dealWithTime'] = function( time ) {
+        if('cut3' === this.deal_time || 'cut2' === this.deal_time) {
+            var result = this[this.deal_time + '_regexp'].exec(time);
+            if(null !== result){
+                time = result[1] || time;
+            }
+        }else if('drop' === this.deal_time) {
+            return '';
+        }
+        return this.callNameColourer(0, 'time', time);
+    };
     Colourer.prototype['output'] = function() {
         var output = '';
         var that = this;
         $.each(this.output_rows, function(nor, row) {
             var i = that.names.indexOf(row[0]);
-            output = output + that.callNameColourer(i, 'time', row[2])
+            output = output + that.dealWithTime(row[2])
                             + that.callNameColourer(i, 'name', row[3])
                             + that.callNameColourer(i, row[1], row[4])
                             + "\n";

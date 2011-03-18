@@ -36,7 +36,9 @@ mktmp:
 	                       | sed "s/.js\"><\/script>/.min.js\"><\/script>/g" \
 	                       | sed "s/.css\" \/>/.min.css\" \/>/g" > ${TMP}index.html
 	@@cat ${SRC}scripts/log-colourer.js | ${SED_VER} > ${TMP}scripts/log-colourer.js.tmp
-	@@java -jar build/google-compiler.jar --js ${TMP}scripts/log-colourer.js.tmp --warning_level QUIET --js_output_file ${TMP}scripts/log-colourer.min.js
+	@@java -jar build/google-compiler.jar --js ${TMP}scripts/log-colourer.js.tmp --warning_level QUIET --js_output_file ${TMP}scripts/log-colourer.min.tmp
+	@@head -n 10 ${TMP}scripts/log-colourer.js.tmp > ${TMP}scripts/log-colourer.min.js
+	@@cat ${TMP}scripts/log-colourer.min.tmp >> ${TMP}scripts/log-colourer.min.js
 
 local: mktmp
 	@@rm -rf ${LOCAL_DIR}*
