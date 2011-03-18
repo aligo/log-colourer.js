@@ -2,10 +2,10 @@
 <html>
   <head>
   <meta charset='utf-8'>
-  <title>Log上色器.js v0.0.2a</title>
+  <title>Log上色器.js v0.0.3</title>
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
-  <script type="text/javascript" src="scripts/log-colourer.min.js?0.0.2a"></script>
+  <script type="text/javascript" src="scripts/log-colourer.min.js?0.0.3"></script>
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
   <style type="text/css">
     body {
@@ -30,12 +30,12 @@
     <div align="center" data-type="horizontal" data-role="controlgroup">
       <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="alert" href="http://ellesime.anetcity.com/ellesime/bbs/index.php?topic=38402.0">Bug报告</a>
       <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="star" href="https://github.com/aligo/log-colourer.js">GitHub</a>
-      <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="gear" href="https://github.com/downloads/aligo/log-colourer.js/log-colourer.0.0.2a.zip">下载</a>
+      <a rel="external" target="_blank" data-inline="true" data-role="button" data-icon="gear" href="https://github.com/downloads/aligo/log-colourer.js/log-colourer.0.0.3.zip">下载</a>
     </div>
   </div>
   <div data-role="content">
     <h1 align="center">Log Colourer.js</h1>
-    <h4 align="center">v0.0.2a by aligo</h4>
+    <h4 align="center">v0.0.3 by aligo</h4>
     <div data-role="fieldcontain">
       <label for="log-format" class="select">Log格式:</label>
       <select name="log-format" id="log-format" data-theme="b">
@@ -55,6 +55,19 @@
     <div data-role="fieldcontain">
       <label for="hide-regexp">隐藏表达式:</label>
       <input type="text" name="hide-regexp" id="hide-regexp" value="~^(?:\(|（).*~S"  />
+    </div>
+    <div data-role="fieldcontain">
+      <fieldset id="deal-time" data-type="horizontal" data-role="controlgroup">
+        <legend>时间精简:</legend>
+        <input type="radio" name="deal-time" id="keep-time" value="keep"  />
+        <label for="keep-time">保留</label>
+        <input type="radio" name="deal-time" id="cut3-time" value="cut3" checked="checked"  />
+        <label for="cut3-time">时:分:秒</label>
+        <input type="radio" name="deal-time" id="cut2-time" value="cut2" />
+        <label for="cut2-time">时:分</label>
+        <input type="radio" name="deal-time" id="drop-time" value="drop"  />
+        <label for="drop-time">去除</label>
+      </fieldset>
     </div>
     <div data-role="fieldcontain">
       <label for="log-text">将Log粘贴到此:</label>
@@ -98,6 +111,7 @@
         <option value='yellow' style='background-color:yellow;color:yellow' >黃色</option>
         <option value='lime' style='background-color:lime;color:lime' >淺綠色</option>
         <option value='aqua' style='background-color:aqua;color:aqua' >淺青綠色</option>
+        <option value='#F88' style='background-color:#F88;color:#F88' >珊瑚色</option>
         <option value='black' style='background-color:black;color:black' >黑色</option>
         <option value='#333' style='background-color:#333;color:#333' >深灰色</option>
         <option value='gray' style='background-color:gray;color:gray' >灰色</option>
