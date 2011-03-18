@@ -12,6 +12,8 @@
 
     $(function(){
 
+        var timestamp = Math.round(new Date().getTime() / 1000);
+
         var colourer = new LogColourer();
 
         $.fn.colorselecter = function(){
@@ -30,6 +32,10 @@
                 $('#first #name-regexp').val($(this).find('option:selected').data('name-regexp'));
                 $('#first #drop-regexp').val($(this).find('option:selected').data('drop-regexp'));
             }
+        });
+
+        $('a.refresh').each(function(){
+            $(this).attr('href', $(this).attr('href') + '?' + timestamp );
         });
 
         //init elements
